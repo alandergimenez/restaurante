@@ -1,26 +1,24 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { map } from 'lodash';
-import Routes  from "./routes";
 import routes from "./routes";
 
 export function Navigation() {
     return (
-        <Router>
-            <Switch>
+        <BrowserRouter>
+            <Routes>
                 {map(routes, (route, index) => (
-                    <routes 
+                    <Route 
                         key = {index}
                         path = {route.path}
-                        exact = {route.exact}
-                        render = {(props) => (
+                        element = {
                             <route.layout>
-                                <route.component {...props} />
+                                <route.component />
                             </route.layout>
-                        )}
+                        }
                     />
                 ))}
-            </Switch>
-        </Router>
+            </Routes>
+        </BrowserRouter>
     );
 }

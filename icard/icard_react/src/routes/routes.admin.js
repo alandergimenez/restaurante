@@ -9,5 +9,5 @@ const routesAdmin = [
         component: LoginAdmin,
         exact: true,
     }
-]
+];
 export default routesAdmin;
